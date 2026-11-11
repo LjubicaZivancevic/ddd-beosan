@@ -12,7 +12,7 @@ import netlify from "@netlify/vite-plugin-tanstack-start";
 
 // Netlify sets NETLIFY=true during its builds. There we swap Nitro for the official
 // Netlify adapter; everywhere else (Lovable preview/hosting) the default setup is kept.
-const isNetlify = process.env.NETLIFY === "true";
+const isNetlify = process.env["NETLIFY"] === "true";
 
 export default defineConfig({
   tanstackStart: {
