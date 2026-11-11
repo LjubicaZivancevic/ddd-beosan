@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Menu, Phone, X } from "lucide-react";
-import logo from "@/assets/deratizacije_beo_san_logo.jpg.asset.json";
 import { company, sr, tel } from "@/content/sr";
 
 export function Header() {
@@ -15,7 +14,7 @@ export function Header() {
     <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled || open ? "bg-card/95 shadow-soft backdrop-blur" : "bg-transparent"}`}>
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-4 px-5 py-3 lg:px-8">
         <a href="#pocetna" className="flex items-center gap-3" aria-label={`${company.name} — početna`}>
-          <img src={logo.url} alt={`${company.name} logo`} width={48} height={48} className="h-12 w-12 rounded-full bg-card object-cover ring-1 ring-border" />
+          <img src="/images/deratizacije_beo_san_logo.jpg" alt={`${company.name} logo`} width={48} height={48} className="h-12 w-12 rounded-full bg-card object-cover ring-1 ring-border" />
           <span className={`font-display text-lg font-bold leading-none ${scrolled || open ? "text-primary-deep" : "text-primary-deep-foreground"}`}>
             Beo San <span className="text-primary">D.D.D</span>
           </span>
