@@ -8,6 +8,11 @@
 // hosting already compresses at the edge.
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import netlify from "@netlify/vite-plugin-tanstack-start";
+
+// Netlify sets NETLIFY=true during its builds. There we swap Nitro for the official
+// Netlify adapter; everywhere else (Lovable preview/hosting) the default setup is kept.
+const isNetlify = process.env["NETLIFY"] === "true";
 
 export default defineConfig({
   tanstackStart: {
@@ -15,4 +20,5 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  ...(isNetlify ? { nitro: false as const, plugins: [netlify()] } : {}),
 });
