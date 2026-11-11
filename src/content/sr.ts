@@ -2,8 +2,8 @@
 export const company = {
   name: "Beo San D.D.D",
   city: "Beograd",
-  phones: ["064/058-2001", "064/5151-532"] as const,
-  email: "info@primer-email.rs", // TODO: zameniti pravom adresom
+  phones: ["064/947-6677", "064/5151-532"] as const,
+  email: "office.beosan@gmail.com",
   address: "Adresa — dopuniti", // TODO
   hours: "Radno vreme — dopuniti", // TODO
 };
@@ -41,8 +41,21 @@ export const sr = {
     more: "Saznajte više",
     items: [
       { key: "deratizacija", title: "Deratizacija", text: "Profesionalna kontrola i prevencija pojave miševa i pacova u stambenim i poslovnim objektima, uz postavljanje zaštićenih mamaka i redovan nadzor." },
-      { key: "dezinsekcija", title: "Dezinsekcija", text: "Suzbijanje insekata — bubašvaba, mrava, komaraca, muva i drugih — tretmanima prilagođenim vrsti insekta i prostoru." },
-      { key: "dezinfekcija", title: "Dezinfekcija", text: "Dezinfekcija prostora stambene, poslovne i industrijske namene radi uklanjanja bakterija, virusa i drugih mikroorganizama." },
+      { key: "dezinsekcija", title: "Dezinsekcija", text: "Eliminacija bubašvaba, mrava, komaraca, muva, stenica i svih ostalih insekata — tretmanima prilagođenim vrsti insekta i prostoru." },
+      { key: "dezinfekcija", title: "Dezinfekcija", text: "Potpuna dezinfekcija prostora stambene, poslovne i industrijske namene radi uklanjanja bakterija, virusa i gljivica." },
+      { key: "fumigacija", title: "Fumigacija", text: "Fumigacija objekata, magacina i robe radi potpunog uništenja štetočina u skladišnim i proizvodnim prostorima." },
+    ],
+  },
+  preparati: {
+    eyebrow: "Preparati i dozvole",
+    title: "Provereni preparati, sva potrebna rešenja",
+    text: "Preparati koje primenjujemo proizvedeni su od strane najpoznatijih domaćih i svetskih proizvođača. Bezbedni su i ekološki, prilagođeni svakoj situaciji — vaše zdravlje i higijena su naš prioritet.",
+    brands: ["Bayer", "BASF", "Pest Experts", "Syngenta", "Duochem"],
+    points: [
+      "Svi preparati poseduju rešenja Ministarstva poljoprivrede i zaštite životne sredine",
+      "Važeći MSDS (bezbednosni listovi) za svaki preparat",
+      "Rešenje Ministarstva zdravlja za obavljanje delatnosti",
+      "Rešenje Ministarstva poljoprivrede — Uprave za veterinu",
     ],
   },
   why: {
