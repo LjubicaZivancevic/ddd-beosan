@@ -31,3 +31,5 @@ use the editor.
 
 ## Project rules
 - All visible copy lives in `src/content/sr.ts` (company info + texts); add other languages as sibling files rather than hardcoding text in components.
+
+- Netlify deploys: vite.config.ts disables Nitro and adds @netlify/vite-plugin-tanstack-start only when NETLIFY=true; why: keeps Lovable hosting (Nitro/Cloudflare) unchanged while Netlify uses its official adapter.
