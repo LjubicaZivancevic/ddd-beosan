@@ -3,9 +3,6 @@ import {
   ArrowRight, BadgeCheck, Bug, Building2, CalendarCheck, Check, Clock, CloudFog, Factory, FlaskConical, Hospital, Hotel, Home, Mail, MapPin,
   Phone, Rat, ShieldCheck, SprayCan, Target, UserCheck, Users, Warehouse, Wheat, Facebook, Instagram,
 } from "lucide-react";
-import vanImg from "@/assets/beo_san_prevoz.jpg.asset.json";
-import teamImg from "@/assets/tim_beo_san.jpg.asset.json";
-import logo from "@/assets/deratizacije_beo_san_logo.jpg.asset.json";
 import { Header } from "@/components/site/Header";
 import { ContactForm } from "@/components/site/ContactForm";
 import { Reveal } from "@/components/site/Reveal";
@@ -69,7 +66,7 @@ function Index() {
       <main>
         {/* HERO */}
         <section id="pocetna" className="relative isolate overflow-hidden bg-primary-deep">
-          <img src={vanImg.url} alt="Službeno vozilo Beo San D.D.D ispred stambenog objekta u Beogradu" fetchPriority="high"
+          <img src="/images/beo_san_prevoz.jpg" alt="Službeno vozilo Beo San D.D.D ispred stambenog objekta u Beogradu" fetchPriority="high"
             className="absolute inset-0 -z-10 h-full w-full object-cover object-[70%_center] opacity-45 lg:left-auto lg:w-[55%] lg:opacity-100" />
           <div className="absolute inset-0 -z-10 bg-gradient-to-r from-primary-deep via-primary-deep/90 to-primary-deep/40 lg:via-primary-deep lg:via-45% lg:to-transparent" />
           <div className="mx-auto grid min-h-[100svh] max-w-7xl items-center px-5 pb-16 pt-32 lg:grid-cols-12 lg:px-8">
@@ -93,10 +90,10 @@ function Index() {
         <section id="o-nama" className="py-24 lg:py-32">
           <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 lg:grid-cols-2 lg:px-8">
             <Reveal className="relative">
-              <img src={teamImg.url} alt="Tim Beo San D.D.D u zaštitnoj opremi spreman za dezinfekciju" loading="lazy"
+              <img src="/images/tim_beo_san.jpg" alt="Tim Beo San D.D.D u zaštitnoj opremi spreman za dezinfekciju" loading="lazy"
                 className="aspect-[4/3.6] w-full rounded-2xl object-cover shadow-lift" />
               <div className="absolute -bottom-6 left-6 flex items-center gap-3 rounded-xl bg-card p-4 pr-6 shadow-lift">
-                <img src={logo.url} alt="" className="h-12 w-12 rounded-full object-cover" loading="lazy" />
+                <img src="/images/deratizacije_beo_san_logo.jpg" alt="" className="h-12 w-12 rounded-full object-cover" loading="lazy" />
                 <div><p className="font-display font-bold text-primary-deep">{company.name}</p><p className="text-sm text-muted-foreground">{company.city}</p></div>
               </div>
             </Reveal>
@@ -247,7 +244,7 @@ function Index() {
       <footer className="bg-primary-deep text-primary-deep-foreground">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
           <div>
-            <img src={logo.url} alt={`${company.name} logo`} className="h-20 w-20 rounded-full bg-card object-cover" loading="lazy" />
+            <img src="/images/deratizacije_beo_san_logo.jpg" alt={`${company.name} logo`} className="h-20 w-20 rounded-full bg-card object-cover" loading="lazy" />
             <p className="mt-5 text-sm leading-relaxed text-primary-deep-foreground/70">{sr.footer.text}</p>
           </div>
           <FooterCol title={sr.footer.nav}>{sr.nav.map((n) => <li key={n.id}><a href={`#${n.id}`} className="hover:text-primary-deep-foreground">{n.label}</a></li>)}</FooterCol>
