@@ -149,7 +149,7 @@ function Index() {
             <div id="zasto-mi"><SectionHead eyebrow={sr.why.eyebrow} title={sr.why.title} light /></div>
             <div className="mt-14 grid gap-px overflow-hidden rounded-2xl bg-primary-deep-foreground/10 sm:grid-cols-2 lg:grid-cols-3">
               {sr.why.items.map((w, i) => {
-                const Icon = whyIcons[i];
+                const Icon = whyIcons[i]!;
                 return (
                   <div key={w.title} className="bg-primary-deep p-8 transition hover:bg-primary-deep-foreground/5">
                     <Icon className="h-8 w-8 text-accent" strokeWidth={1.6} aria-hidden />
@@ -168,7 +168,7 @@ function Index() {
             <SectionHead eyebrow={sr.industries.eyebrow} title={sr.industries.title} text={sr.industries.text} />
             <div className="mt-14 grid grid-cols-2 gap-4 lg:grid-cols-3">
               {sr.industries.items.map((t, i) => {
-                const Icon = industryIcons[i];
+                const Icon = industryIcons[i]!;
                 return (
                   <Reveal key={t} delay={i * 60}>
                     <div className="group flex h-full flex-col gap-4 rounded-xl border border-border bg-card p-5 transition hover:border-primary hover:shadow-soft sm:flex-row sm:items-center sm:p-6">

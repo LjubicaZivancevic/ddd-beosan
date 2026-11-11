@@ -2,7 +2,7 @@
 export const company = {
   name: "Beo San D.D.D",
   city: "Beograd",
-  phones: ["064/058-2001", "064/5151-532"],
+  phones: ["064/058-2001", "064/5151-532"] as const,
   email: "info@primer-email.rs", // TODO: zameniti pravom adresom
   address: "Adresa — dopuniti", // TODO
   hours: "Radno vreme — dopuniti", // TODO
