@@ -162,6 +162,36 @@ function Index() {
           </div>
         </section>
 
+        {/* PREPARATI */}
+        <section id="preparati" className="py-24 lg:py-32">
+          <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 lg:grid-cols-2 lg:px-8">
+            <div>
+              <SectionHead eyebrow={sr.preparati.eyebrow} title={sr.preparati.title} text={sr.preparati.text} />
+              <Reveal delay={100}>
+                <ul className="mt-8 space-y-3">
+                  {sr.preparati.points.map((p) => (
+                    <li key={p} className="flex items-start gap-3 font-semibold text-foreground">
+                      <BadgeCheck className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden />{p}
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+            </div>
+            <Reveal delay={150}>
+              <div className="rounded-2xl border border-border bg-card p-8 shadow-soft">
+                <p className="eyebrow">{sr.preparati.brandsTitle}</p>
+                <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
+                  {sr.preparati.brands.map((b) => (
+                    <div key={b} className="grid place-items-center rounded-xl border border-border bg-secondary px-4 py-6 text-center font-display text-lg font-bold text-primary-deep">
+                      {b}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
         {/* INDUSTRIES */}
         <section id="kome-pruzamo-usluge" className="py-24 lg:py-32">
           <div className="mx-auto max-w-7xl px-5 lg:px-8">

@@ -50,6 +50,7 @@ export const sr = {
     eyebrow: "Preparati i dozvole",
     title: "Provereni preparati, sva potrebna rešenja",
     text: "Preparati koje primenjujemo proizvedeni su od strane najpoznatijih domaćih i svetskih proizvođača. Bezbedni su i ekološki, prilagođeni svakoj situaciji — vaše zdravlje i higijena su naš prioritet.",
+    brandsTitle: "Proizvođači čije preparate koristimo",
     brands: ["Bayer", "BASF", "Pest Experts", "Syngenta", "Duochem"],
     points: [
       "Svi preparati poseduju rešenja Ministarstva poljoprivrede i zaštite životne sredine",
