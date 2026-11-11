@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
-  ArrowRight, Bug, Building2, CalendarCheck, Check, Clock, Factory, FlaskConical, Hospital, Hotel, Home, Mail, MapPin,
+  ArrowRight, BadgeCheck, Bug, Building2, CalendarCheck, Check, Clock, CloudFog, Factory, FlaskConical, Hospital, Hotel, Home, Mail, MapPin,
   Phone, Rat, ShieldCheck, SprayCan, Target, UserCheck, Users, Warehouse, Wheat, Facebook, Instagram,
 } from "lucide-react";
 import vanImg from "@/assets/beo_san_prevoz.jpg.asset.json";
@@ -44,7 +44,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const serviceIcons = { deratizacija: Rat, dezinsekcija: Bug, dezinfekcija: SprayCan } as const;
+const serviceIcons = { deratizacija: Rat, dezinsekcija: Bug, dezinfekcija: SprayCan, fumigacija: CloudFog } as const;
 const whyIcons = [ShieldCheck, UserCheck, FlaskConical, Target, Users, CalendarCheck];
 const industryIcons = [Home, Hotel, Wheat, Warehouse, Building2, Hospital];
 
@@ -120,7 +120,7 @@ function Index() {
         <section id="usluge" className="bg-secondary py-24 lg:py-32">
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             <SectionHead eyebrow={sr.services.eyebrow} title={sr.services.title} />
-            <div className="mt-14 grid gap-6 md:grid-cols-3">
+            <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {sr.services.items.map((s, i) => {
                 const Icon = serviceIcons[s.key as keyof typeof serviceIcons];
                 return (
