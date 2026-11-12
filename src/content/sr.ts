@@ -65,6 +65,8 @@ export const sr = {
     text: "Pogledajte kako izgleda naš rad — od intervencija u stambenim i poslovnim objektima do pripreme preparata u laboratoriji.",
     prev: "Prethodna fotografija",
     next: "Sledeća fotografija",
+    open: "Otvori fotografiju",
+    close: "Zatvori",
     slides: [
       { src: "/images/beosan.jpg", alt: "Ekipa Beo San D.D.D u zaštitnim odelima ispred stambene zgrade", caption: "Intervencija u stambenom naselju" },
       { src: "/images/beosan1.jpg", alt: "Saradnik u zaštitnom odelu ispred reprezentativnog objekta", caption: "Dezinfekcija reprezentativnih objekata" },
