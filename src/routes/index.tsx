@@ -5,6 +5,7 @@ import {
 } from "lucide-react";
 import { Header } from "@/components/site/Header";
 import { ContactForm } from "@/components/site/ContactForm";
+import { GallerySlider } from "@/components/site/GallerySlider";
 import { Reveal } from "@/components/site/Reveal";
 import { company, sr, tel } from "@/content/sr";
 
@@ -185,6 +186,18 @@ function Index() {
                   ))}
                 </div>
               </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* GALLERY */}
+        <section id="galerija" className="bg-secondary py-24 lg:py-32">
+          <div className="mx-auto max-w-7xl px-5 lg:px-8">
+            <div className="grid items-end gap-8 lg:grid-cols-2">
+              <SectionHead eyebrow={sr.gallery.eyebrow} title={sr.gallery.title} text={sr.gallery.text} />
+            </div>
+            <Reveal className="mt-12" delay={100}>
+              <GallerySlider />
             </Reveal>
           </div>
         </section>

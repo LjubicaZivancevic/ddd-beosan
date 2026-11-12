@@ -59,6 +59,21 @@ export const sr = {
       "Rešenje Ministarstva poljoprivrede — Uprave za veterinu",
     ],
   },
+  gallery: {
+    eyebrow: "Galerija",
+    title: "Naš rad na terenu",
+    text: "Pogledajte kako izgleda naš rad — od intervencija u stambenim i poslovnim objektima do pripreme preparata u laboratoriji.",
+    prev: "Prethodna fotografija",
+    next: "Sledeća fotografija",
+    slides: [
+      { src: "/images/beosan.jpg", alt: "Ekipa Beo San D.D.D u zaštitnim odelima ispred stambene zgrade", caption: "Intervencija u stambenom naselju" },
+      { src: "/images/beosan1.jpg", alt: "Saradnik u zaštitnom odelu ispred reprezentativnog objekta", caption: "Dezinfekcija reprezentativnih objekata" },
+      { src: "/images/ddd.jpg", alt: "Dezinfekcija televizijskog studija", caption: "Dezinfekcija TV studija" },
+      { src: "/images/preparati.jpg", alt: "Priprema preparata u laboratoriji", caption: "Pažljiv odabir preparata" },
+      { src: "/images/preparati2.jpg", alt: "Rad sa preparatima u laboratoriji", caption: "Kontrolisana priprema sredstava" },
+      { src: "/images/preparati3.jpg", alt: "Laboratorijska priprema tretmana", caption: "Laboratorijska priprema tretmana" },
+    ],
+  },
   why: {
     eyebrow: "Zašto mi",
     title: "Na šta možete da računate",
