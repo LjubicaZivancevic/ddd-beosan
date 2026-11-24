@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { CheckCircle2, Send } from "lucide-react";
-import { company, sr, tel } from "@/content/sr";
+import { company, sr, tel, wa } from "@/content/sr";
 
 const f = sr.contact.form;
 type Field = "name" | "phone" | "email" | "service" | "message";
@@ -30,11 +30,14 @@ export function ContactForm() {
     if (Object.keys(e).length > 0) return;
     setSending(true);
     setFailed(false);
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 12000);
     try {
       const serviceTitle = sr.services.items.find((s) => s.key === v.service)?.title ?? f.serviceOther;
       const res = await fetch(`https://formsubmit.co/ajax/${company.email}`, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
+        signal: ctrl.signal,
         body: JSON.stringify({
           _subject: `Novi upit sa sajta — ${serviceTitle}`,
           Ime: v.name,
@@ -49,6 +52,7 @@ export function ContactForm() {
     } catch {
       setFailed(true);
     } finally {
+      clearTimeout(timer);
       setSending(false);
     }
   };
@@ -94,7 +98,17 @@ export function ContactForm() {
         <button type="submit" disabled={sending} className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-7 py-3.5 font-bold text-primary-foreground shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto">
           <Send className="h-4 w-4" aria-hidden /> {sending ? f.sending : f.submit}
         </button>
-        {failed && <p role="alert" className="mt-3 text-sm text-destructive">{f.errorText}</p>}
+        {failed && (
+          <div role="alert" className="mt-3 text-sm">
+            <p className="text-destructive">{f.errorText}</p>
+            <p className="mt-1.5 text-muted-foreground">
+              {f.errorHelp}{" "}
+              <a href={wa()} target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline underline-offset-4">{f.errorWaLabel}</a>
+              {" "}{f.errorHelpPhone}{" "}
+              <a href={tel(company.phones[0])} className="font-semibold text-primary underline underline-offset-4">{company.phones[0]}</a>
+            </p>
+          </div>
+        )}
       </div>
     </form>
   );
