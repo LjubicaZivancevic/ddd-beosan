@@ -34,3 +34,4 @@ use the editor.
 
 - Netlify deploys: vite.config.ts disables Nitro and adds @netlify/vite-plugin-tanstack-start only when NETLIFY=true; why: keeps Lovable hosting (Nitro/Cloudflare) unchanged while Netlify uses its official adapter.
 - Site images live in public/images and are referenced as /images/<file>; why: Lovable CDN asset URLs (/__l5e/) do not resolve on Netlify.
+- Route "/" is prerendered to static HTML at build time (vite.config.ts prerender); why: dist/client must work on plain shared hosting with no Node.js server, so never add server functions or API routes.

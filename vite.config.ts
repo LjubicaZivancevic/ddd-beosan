@@ -19,6 +19,11 @@ export default defineConfig({
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
+    // Single-page site with no backend: render "/" to static HTML at build time so
+    // dist/client can be uploaded to plain shared hosting (no Node.js at runtime).
+    // Discovery is pinned off so only the listed page is prerendered.
+    pages: [{ path: "/" }],
+    prerender: { enabled: true, autoStaticPathsDiscovery: false },
   },
   ...(isNetlify ? { nitro: false as const, plugins: [netlify()] } : {}),
 });
