@@ -2,13 +2,21 @@
 export const company = {
   name: "Beo San D.D.D",
   city: "Beograd",
-  phones: ["064/947-6677", "064/5151-532"] as const,
-  email: "office.beosan@gmail.com",
-  address: "Adresa — dopuniti", // TODO
-  hours: "Radno vreme — dopuniti", // TODO
+  phones: ["062/106-4422"] as const,
+  email: "ddd.beosan@gmail.com",
+  hours: "Dostupni smo 24/7 — svakog dana u nedelji",
+  social: {
+    instagram: "https://www.instagram.com/beosanddd",
+    facebook: "https://www.facebook.com/share/1FPv2Ggo2G/",
+  },
+  whatsapp: {
+    number: "381621064422",
+    message: "Dobar dan! Zanima me vaša DDD usluga. Molim vas za više informacija.",
+  },
 };
 
 export const tel = (p: string) => "tel:+381" + p.replace(/\D/g, "").replace(/^0/, "");
+export const wa = () => `https://wa.me/${company.whatsapp.number}?text=${encodeURIComponent(company.whatsapp.message)}`;
 
 export const sr = {
   nav: [
@@ -19,7 +27,7 @@ export const sr = {
     { id: "kontakt", label: "Kontakt" },
   ],
   hero: {
-    eyebrow: "DDD usluge · Beograd",
+    eyebrow: "DDD usluge · Beograd i cela Srbija",
     title: "Profesionalna deratizacija, dezinsekcija i dezinfekcija",
     text: "Pouzdano rešavamo probleme sa glodarima, insektima i mikroorganizmima u domovima, poslovnim prostorima i industrijskim objektima — temeljno, diskretno i uz pažljivo odabrane tretmane.",
     call: "Pozovite nas",
@@ -30,8 +38,9 @@ export const sr = {
     eyebrow: "O nama",
     title: "Higijena i bezbednost prostora su naš posao",
     text: [
-      "Beo San D.D.D je beogradska ekipa posvećena zaštiti prostora od štetočina i uzročnika bolesti. Svakom zadatku pristupamo stručno i odgovorno — od prve procene do završnog tretmana.",
-      "Ne verujemo u šablonska rešenja. Svaki objekat je drugačiji, pa i plan rada prilagođavamo njegovoj nameni, veličini i specifičnim potrebama klijenta.",
+      "Beo San D.D.D. pruža profesionalne usluge dezinfekcije, dezinsekcije i deratizacije na teritoriji cele Srbije.",
+      "Naš tim je dostupan 24 sata dnevno, 7 dana u nedelji, jer znamo da problemi sa štetočinama i uzročnicima bolesti ne mogu uvek da čekaju. Svakom pozivu pristupamo odgovorno i stručno, uz brzo reagovanje i rešenja prilagođena potrebama svakog klijenta.",
+      "Potrebna vam je pomoć? Pozovite nas u bilo koje doba dana ili noći: 062 106 4422.",
     ],
     points: ["Profesionalan i odgovoran pristup", "Pažnja prema higijeni i bezbednosti", "Individualan plan za svakog klijenta", "Kvalitet i efikasnost u svakom koraku"],
   },
@@ -102,17 +111,20 @@ export const sr = {
     eyebrow: "Kontakt",
     title: "Javite nam se",
     text: "Pozovite nas direktno ili pošaljite upit putem forme.",
-    labels: { phone: "Telefon", email: "Email", address: "Adresa", hours: "Radno vreme" },
+    labels: { phone: "Telefon", email: "Email", hours: "Radno vreme" },
     form: {
       name: "Ime i prezime", phone: "Broj telefona", email: "Email adresa", service: "Vrsta usluge", message: "Poruka",
       servicePlaceholder: "Izaberite uslugu", serviceOther: "Kombinovano / nisam siguran",
       submit: "Pošalji upit",
       errors: { name: "Unesite ime i prezime.", phone: "Unesite ispravan broj telefona.", email: "Unesite ispravnu email adresu.", service: "Izaberite vrstu usluge.", message: "Napišite kratku poruku (najmanje 10 karaktera)." },
-      successTitle: "Upit je spreman",
-      successText: "Hvala! Slanje upita putem forme još nije povezano — za brz odgovor pozovite nas na broj ispod.",
+      successTitle: "Upit je poslat",
+      successText: "Hvala! Vaša poruka je stigla — javljamo vam se u najkraćem roku.",
+      errorText: "Slanje nije uspelo. Pokušajte ponovo ili nas pozovite direktno.",
+      sending: "Šalje se…",
       again: "Novi upit",
     },
   },
+  whatsapp: { aria: "Pišite nam na WhatsApp" },
   footer: {
     text: "Deratizacija, dezinsekcija i dezinfekcija stambenih, poslovnih i industrijskih prostora u Beogradu.",
     nav: "Navigacija", services: "Usluge", contact: "Kontakt", social: "Pratite nas",

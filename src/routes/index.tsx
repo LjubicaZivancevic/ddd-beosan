@@ -1,28 +1,29 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
-  ArrowRight, BadgeCheck, Bug, Building2, CalendarCheck, Check, Clock, CloudFog, Factory, FlaskConical, Hospital, Hotel, Home, Mail, MapPin,
+  ArrowRight, BadgeCheck, Bug, Building2, CalendarCheck, Check, Clock, CloudFog, Factory, FlaskConical, Hospital, Hotel, Home, Mail,
   Phone, Rat, ShieldCheck, SprayCan, Target, UserCheck, Users, Warehouse, Wheat, Facebook, Instagram,
 } from "lucide-react";
 import { Header } from "@/components/site/Header";
 import { ContactForm } from "@/components/site/ContactForm";
 import { GallerySlider } from "@/components/site/GallerySlider";
 import { Reveal } from "@/components/site/Reveal";
+import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { company, sr, tel } from "@/content/sr";
 
-const title = "Beo San D.D.D — Deratizacija, dezinsekcija i dezinfekcija | Beograd";
-const description = "Profesionalne DDD usluge u Beogradu: deratizacija, dezinsekcija (suzbijanje insekata) i dezinfekcija prostora za domove, firme, restorane i ustanove.";
+const title = "Deratizacija, dezinsekcija i dezinfekcija 24/7 — Beo San D.D.D | Beograd i Srbija";
+const description = "Profesionalna deratizacija, dezinsekcija, dezinfekcija i fumigacija u Beogradu i celoj Srbiji. Dostupni 24/7, bezbedni preparati (Bayer, BASF, Syngenta). Pozovite 062/106-4422.";
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@graph": [
-    { "@type": "Organization", name: company.name, logo: "LOGO_URL", telephone: company.phones },
-    {
-      "@type": "LocalBusiness", name: company.name, telephone: company.phones[0], email: company.email,
-      address: { "@type": "PostalAddress", streetAddress: "ADRESA", addressLocality: company.city, addressCountry: "RS" },
-      areaServed: company.city, openingHours: "RADNO_VREME",
-      makesOffer: sr.services.items.map((s) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: s.title } })),
-    },
-  ],
+  "@type": "LocalBusiness",
+  name: company.name,
+  telephone: company.phones[0],
+  email: company.email,
+  address: { "@type": "PostalAddress", addressLocality: company.city, addressCountry: "RS" },
+  areaServed: "Srbija",
+  openingHours: "Mo-Su 00:00-24:00",
+  sameAs: [company.social.instagram, company.social.facebook],
+  makesOffer: sr.services.items.map((s) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: s.title } })),
 };
 
 export const Route = createFileRoute("/")({
@@ -30,7 +31,7 @@ export const Route = createFileRoute("/")({
     meta: [
       { title },
       { name: "description", content: description },
-      { name: "keywords", content: "deratizacija, dezinsekcija, dezinfekcija, DDD usluge, profesionalna deratizacija, suzbijanje insekata, dezinfekcija prostora, Beograd" },
+      { name: "keywords", content: "deratizacija, deratizacija beograd, dezinsekcija, dezinsekcija beograd, dezinfekcija, fumigacija, suzbijanje pacova, suzbijanje miševa, suzbijanje bubašvaba, suzbijanje komaraca, stenice, DDD usluge, dezinfekcija prostora" },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
@@ -244,7 +245,6 @@ function Index() {
               <ul className="mt-10 space-y-6">
                 <li className="flex gap-4"><Icon><Phone className="h-5 w-5" /></Icon><div><p className="text-sm text-muted-foreground">{sr.contact.labels.phone}</p>{company.phones.map((p) => <a key={p} href={tel(p)} className="block font-display text-lg font-bold text-primary-deep hover:text-primary">{p}</a>)}</div></li>
                 <li className="flex gap-4"><Icon><Mail className="h-5 w-5" /></Icon><div><p className="text-sm text-muted-foreground">{sr.contact.labels.email}</p><a href={`mailto:${company.email}`} className="font-semibold text-foreground hover:text-primary">{company.email}</a></div></li>
-                <li className="flex gap-4"><Icon><MapPin className="h-5 w-5" /></Icon><div><p className="text-sm text-muted-foreground">{sr.contact.labels.address}</p><p className="font-semibold">{company.address}, {company.city}</p></div></li>
                 <li className="flex gap-4"><Icon><Clock className="h-5 w-5" /></Icon><div><p className="text-sm text-muted-foreground">{sr.contact.labels.hours}</p><p className="font-semibold">{company.hours}</p></div></li>
               </ul>
             </div>
@@ -266,13 +266,14 @@ function Index() {
             {company.phones.map((p) => <li key={p}><a href={tel(p)} className="hover:text-primary-deep-foreground">{p}</a></li>)}
             <li><a href={`mailto:${company.email}`} className="hover:text-primary-deep-foreground">{company.email}</a></li>
             <li className="flex gap-3 pt-3">
-              <a href="#" aria-label="Facebook (uskoro)" className="grid h-10 w-10 place-items-center rounded-lg bg-primary-deep-foreground/10 hover:bg-primary"><Facebook className="h-4 w-4" /></a>
-              <a href="#" aria-label="Instagram (uskoro)" className="grid h-10 w-10 place-items-center rounded-lg bg-primary-deep-foreground/10 hover:bg-primary"><Instagram className="h-4 w-4" /></a>
+              <a href={company.social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="grid h-10 w-10 place-items-center rounded-lg bg-primary-deep-foreground/10 hover:bg-primary"><Facebook className="h-4 w-4" /></a>
+              <a href={company.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="grid h-10 w-10 place-items-center rounded-lg bg-primary-deep-foreground/10 hover:bg-primary"><Instagram className="h-4 w-4" /></a>
             </li>
           </FooterCol>
         </div>
         <div className="border-t border-primary-deep-foreground/10 py-6 text-center text-sm text-primary-deep-foreground/60">© {year} {company.name}, {company.city}. {sr.footer.rights}</div>
       </footer>
+      <WhatsAppButton />
     </>
   );
 }

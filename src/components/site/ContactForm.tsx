@@ -20,12 +20,37 @@ export function ContactForm() {
   const [v, setV] = useState(empty);
   const [errors, setErrors] = useState<Partial<Record<Field, string>>>({});
   const [done, setDone] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [failed, setFailed] = useState(false);
 
-  const submit = (ev: FormEvent) => {
+  const submit = async (ev: FormEvent) => {
     ev.preventDefault();
     const e = validate(v);
     setErrors(e);
-    if (Object.keys(e).length === 0) setDone(true);
+    if (Object.keys(e).length > 0) return;
+    setSending(true);
+    setFailed(false);
+    try {
+      const serviceTitle = sr.services.items.find((s) => s.key === v.service)?.title ?? f.serviceOther;
+      const res = await fetch(`https://formsubmit.co/ajax/${company.email}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          _subject: `Novi upit sa sajta — ${serviceTitle}`,
+          Ime: v.name,
+          Telefon: v.phone,
+          Email: v.email,
+          Usluga: serviceTitle,
+          Poruka: v.message,
+        }),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      setDone(true);
+    } catch {
+      setFailed(true);
+    } finally {
+      setSending(false);
+    }
   };
 
   const input = "w-full rounded-lg border border-input bg-card px-4 py-3 text-foreground outline-none transition placeholder:text-muted-foreground/70 focus:border-primary focus:ring-4 focus:ring-ring/15 aria-[invalid=true]:border-destructive";
@@ -66,9 +91,10 @@ export function ContactForm() {
       ))}
       {field("message", f.message, <textarea {...common("message")} rows={5} />)}
       <div className="sm:col-span-2">
-        <button type="submit" className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-7 py-3.5 font-bold text-primary-foreground shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift sm:w-auto">
-          <Send className="h-4 w-4" aria-hidden /> {f.submit}
+        <button type="submit" disabled={sending} className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-7 py-3.5 font-bold text-primary-foreground shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto">
+          <Send className="h-4 w-4" aria-hidden /> {sending ? f.sending : f.submit}
         </button>
+        {failed && <p role="alert" className="mt-3 text-sm text-destructive">{f.errorText}</p>}
       </div>
     </form>
   );
