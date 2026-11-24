@@ -2,7 +2,7 @@
 export const company = {
   name: "Beo San D.D.D",
   city: "Beograd",
-  phones: ["062/106-4422"] as const,
+  phones: ["064/947-6677", "064/5151-532"] as const,
   email: "ddd.beosan@gmail.com",
   hours: "Dostupni smo 24/7 — svakog dana u nedelji",
   social: {
@@ -10,7 +10,7 @@ export const company = {
     facebook: "https://www.facebook.com/share/1FPv2Ggo2G/",
   },
   whatsapp: {
-    number: "381621064422",
+    number: "381649476677",
     message: "Dobar dan! Zanima me vaša DDD usluga. Molim vas za više informacija.",
   },
 };
@@ -40,7 +40,7 @@ export const sr = {
     text: [
       "Beo San D.D.D. pruža profesionalne usluge dezinfekcije, dezinsekcije i deratizacije na teritoriji cele Srbije.",
       "Naš tim je dostupan 24 sata dnevno, 7 dana u nedelji, jer znamo da problemi sa štetočinama i uzročnicima bolesti ne mogu uvek da čekaju. Svakom pozivu pristupamo odgovorno i stručno, uz brzo reagovanje i rešenja prilagođena potrebama svakog klijenta.",
-      "Potrebna vam je pomoć? Pozovite nas u bilo koje doba dana ili noći: 062 106 4422.",
+      "Potrebna vam je pomoć? Pozovite nas u bilo koje doba dana ili noći: 064 947 6677.",
     ],
     points: ["Profesionalan i odgovoran pristup", "Pažnja prema higijeni i bezbednosti", "Individualan plan za svakog klijenta", "Kvalitet i efikasnost u svakom koraku"],
   },

@@ -11,7 +11,7 @@ import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { company, sr, tel } from "@/content/sr";
 
 const title = "Deratizacija, dezinsekcija i dezinfekcija 24/7 — Beo San D.D.D | Beograd i Srbija";
-const description = "Profesionalna deratizacija, dezinsekcija, dezinfekcija i fumigacija u Beogradu i celoj Srbiji. Dostupni 24/7, bezbedni preparati (Bayer, BASF, Syngenta). Pozovite 062/106-4422.";
+const description = "Profesionalna deratizacija, dezinsekcija, dezinfekcija i fumigacija u Beogradu i celoj Srbiji. Dostupni 24/7, bezbedni preparati (Bayer, BASF, Syngenta). Pozovite 064/947-6677.";
 
 const jsonLd = {
   "@context": "https://schema.org",
